@@ -21,13 +21,13 @@ server.get('/api/users', (req, res) => {
 
 server.post('/api/users', (req, res) => {
   const newUser = req.body;
-  db.instert(newUser)
+  db.insert(newUser)
     .then((user) => {
       res.status(200).json(user);
     })
     .catch((err) => {
       res.status(500).json({
-        message: 'please provide all necessary info',
+        message: 'please include name and bio',
         err,
       });
     });
